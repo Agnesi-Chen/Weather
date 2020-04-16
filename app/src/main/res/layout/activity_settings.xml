@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".setting.SettingsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#1c86ee">
+
+            <Button
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="8dp"
+                android:gravity="left"
+                android:paddingLeft="20dp"
+                android:text="\u003c"
+                android:textSize="25dp"
+                android:textColor="#FFFFFF"
+                android:background="@android:color/transparent"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:text="设置"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:paddingLeft="20dp"
+                android:background="@android:color/transparent"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:paddingTop="100dp"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#000000"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/accounts"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text="账号管理"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"
+                    android:foreground="?attr/selectableItemBackground"/>
+
+                <Button
+                    android:id="@+id/in_accounts"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text=">"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#000000"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/information"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text="消息设置"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"
+                    android:foreground="?attr/selectableItemBackground"/>
+
+                <Button
+                    android:id="@+id/in_information"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text=">"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#000000"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/balance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text="查看余额"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"
+                    android:foreground="?attr/selectableItemBackground"/>
+
+                <Button
+                    android:id="@+id/in_balance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text=">"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#000000"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/notice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text="通知栏"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"
+                    android:foreground="?attr/selectableItemBackground"/>
+
+                <Button
+                    android:id="@+id/in_notice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text=">"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#000000"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/suggestion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text="意见反馈"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"
+                    android:foreground="?attr/selectableItemBackground"/>
+
+                <Button
+                    android:id="@+id/in_suggestion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text=">"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#000000"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/use"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text="使用教程"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"
+                    android:foreground="?attr/selectableItemBackground"/>
+
+                <Button
+                    android:id="@+id/in_use"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text=">"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#000000"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/about"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text="关于软件"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"
+                    android:foreground="?attr/selectableItemBackground"/>
+
+                <Button
+                    android:id="@+id/in_about"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text=">"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#000000"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

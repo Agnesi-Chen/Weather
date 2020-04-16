@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".setting.NoticeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#1c86ee">
+
+            <Button
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:paddingTop="8dp"
+                android:gravity="left"
+                android:paddingLeft="20dp"
+                android:text="\u003c"
+                android:textSize="25dp"
+                android:textColor="#FFFFFF"
+                android:background="@android:color/transparent"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="10"
+                android:text="通知栏"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:paddingLeft="20dp"
+                android:background="@android:color/transparent"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:paddingTop="80dp"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#000000"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/open"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text="通知栏开关"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"
+                    android:foreground="?attr/selectableItemBackground"/>
+
+                <Button
+                    android:id="@+id/in_open"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text=">"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#000000"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/letter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text="字体颜色"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"
+                    android:foreground="?attr/selectableItemBackground"/>
+
+                <Button
+                    android:id="@+id/in_letter"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text=">"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#000000"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/background"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text="背景颜色"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"
+                    android:foreground="?attr/selectableItemBackground"/>
+
+                <Button
+                    android:id="@+id/in_background"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="10dp"
+                    android:text=">"
+                    android:gravity="left"
+                    android:background="@drawable/button_bg_style"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#000000"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

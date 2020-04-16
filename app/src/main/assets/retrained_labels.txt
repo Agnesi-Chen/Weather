@@ -1,0 +1,5 @@
+angry
+disgusted
+fearful
+happy
+sadness
