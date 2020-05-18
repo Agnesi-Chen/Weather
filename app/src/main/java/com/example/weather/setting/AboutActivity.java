@@ -7,9 +7,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.example.weather.R;
 import com.example.weather.setting.personal.VersionsActivity;
+
+/**
+ * 关于类
+ * 展示系统相关信息
+ * 2020/5/18
+ */
 
 public class AboutActivity extends Activity {
 
@@ -21,6 +26,20 @@ public class AboutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         init();
+        Jump();
+    }
+    //初始化各个控件
+    private void init(){
+        number = findViewById(R.id.number);
+        in_number = findViewById(R.id.in_number);
+        edition = findViewById(R.id.edition);
+        in_edition = findViewById(R.id.in_edition);
+        friend = findViewById(R.id.friend);
+        in_friend = findViewById(R.id.in_friend);
+        back = findViewById(R.id.back);
+    }
+    //界面跳转
+    private void Jump(){
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,15 +76,6 @@ public class AboutActivity extends Activity {
                 startActivity(intent);
             }
         });
-    }
-    private void init(){
-        number = findViewById(R.id.number);
-        in_number = findViewById(R.id.in_number);
-        edition = findViewById(R.id.edition);
-        in_edition = findViewById(R.id.in_edition);
-        friend = findViewById(R.id.friend);
-        in_friend = findViewById(R.id.in_friend);
-        back = findViewById(R.id.back);
     }
     //返回键方法的重写
     @Override

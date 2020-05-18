@@ -4,16 +4,28 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+import com.example.weather.MeActivity;
 import com.example.weather.R;
+import com.example.weather.UserInformationMaintainer;
+import com.example.weather.net.UserController;
+import com.example.weather.net.response.UpdateResponse;
 import com.example.weather.setting.AccountsActivity;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * 地址类
+ * 连接数据库服务器修改用户地址
+ * 2020/5/18
+ */
 
 public class Hometown_LocationActivity extends Activity {
 
@@ -27,9 +39,7 @@ public class Hometown_LocationActivity extends Activity {
         setContentView(R.layout.activity_hometown__location);
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
-        back = findViewById(R.id.back);
-        finish = findViewById(R.id.finish);
-        edit_location = findViewById(R.id.edit_location);
+        //监听EditText
         edit_location.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -38,9 +48,19 @@ public class Hometown_LocationActivity extends Activity {
             @Override
             public void afterTextChanged(Editable s) {
                 location = edit_location.getText().toString();
-                requestLogin();
             }
         });
+        init();
+        Jump();
+    }
+    //初始化各个控件
+    private void init(){
+        back = findViewById(R.id.back);
+        finish = findViewById(R.id.finish);
+        edit_location = findViewById(R.id.edit_location);
+    }
+    //界面跳转
+    private void Jump(){
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,28 +73,26 @@ public class Hometown_LocationActivity extends Activity {
             @Override
             public void onClick(View view) {
                 //将数据传回服务器
-                Intent intent = new Intent(Hometown_LocationActivity.this,AccountsActivity.class);
-                startActivity(intent);
-                overridePendingTransition(0,0);
-            }
-        });
-    }
-    //端口连接
-    public void requestLogin() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    url = "http://118.31.18.41:8080/TestService/update?name="+id+"&address="+location;//java.net.URLEncoder.encode(name,"utf-8");
-                    OkHttpClient okHttpClient = new OkHttpClient();
-                    Request request = new Request.Builder().url(url).build();
-                    Response response = okHttpClient.newCall(request).execute();
-                    String responseData = response.body().string();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                if (TextUtils.isEmpty(location)) {
+                    Toast.makeText(Hometown_LocationActivity.this, "请输入有效的地址", Toast.LENGTH_SHORT).show();
+                } else {
+                    UserController.getInstance().update(UserInformationMaintainer.currentUserName, null, null, location, null, new Callback<UpdateResponse>() {
+                        @Override
+                        public void onResponse(Call<UpdateResponse> call, Response<UpdateResponse> response) {
+                            Toast.makeText(Hometown_LocationActivity.this, "修改地址成功", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(Hometown_LocationActivity.this, MeActivity.class);
+                            startActivity(intent);
+                            overridePendingTransition(0, 0);
+                        }
+
+                        @Override
+                        public void onFailure(Call<UpdateResponse> call, Throwable t) {
+                            Toast.makeText(Hometown_LocationActivity.this, "修改地址失败", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
-        }).start();
+        });
     }
     //返回键方法的重写
     @Override

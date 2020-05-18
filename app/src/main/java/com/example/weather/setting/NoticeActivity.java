@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import com.example.weather.R;
 
+/**
+ * 通知栏设置类
+ * 设置通知栏
+ * 2020/5/18
+ */
+
 public class NoticeActivity extends Activity {
 
     private Button back,letter,background;
@@ -27,6 +33,7 @@ public class NoticeActivity extends Activity {
             }
         });
     }
+    //初始化各个控件
     private void init(){
         letter = findViewById(R.id.letter);
         background = findViewById(R.id.background);

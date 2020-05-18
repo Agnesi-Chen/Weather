@@ -8,42 +8,71 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.example.weather.setting.SettingsActivity;
 import com.example.weather.setting.personal.CameraActivity;
-import org.json.JSONException;
-import org.json.JSONObject;
 import de.hdodenhof.circleimageview.CircleImageView;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import com.example.weather.net.UserController;
+import com.example.weather.net.response.ReadResponse;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * 个人信息展示类
+ * 连接数据库服务器获取对应用户的信息展示到相关界面
+ * 2020/5/18
+ */
 
 public class MeActivity extends Activity {
 
     private Button back;
     private ImageButton setting;
     private ImageButton weather, camera;
-    private TextView name,tv;
-    private CircleImageView image;
-    private static String url,id,myname = "",nextname;
+    private TextView name;
+    private static String id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_me);
         init();
+        Jump();
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
-        nextname = intent.getStringExtra("edit_name");
-        /*requestLogin();
-        if(nextname == null){
-            nextname = myname;
-            name.setText(nextname);
-        }
-        else{
-            myname = nextname;
-            name.setText(nextname);
-        }*/
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshCurrentUserInformation();
+    }
+    /**
+     * 刷新当前用户信息
+     */
+    protected void refreshCurrentUserInformation(){
+        UserController.getInstance().getInformationByName(UserInformationMaintainer.currentUserName, new Callback<ReadResponse>() {
+            @Override
+            public void onResponse(Call<ReadResponse> call, Response<ReadResponse> response) {
+                name.setText(response.body().getData().getNickname());
+            }
 
+            @Override
+            public void onFailure(Call<ReadResponse> call, Throwable t) {
+                Toast.makeText(MeActivity.this,"用户信息刷新失败",Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    //初始化各个控件
+    private void init() {
+        weather = findViewById(R.id.weather);
+        camera = findViewById(R.id.camera);
+        setting = findViewById(R.id.setting);
+        name = findViewById(R.id.name);
+        back = findViewById(R.id.back);
+    }
+    //界面跳转
+    private void Jump(){
         weather.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,62 +112,6 @@ public class MeActivity extends Activity {
                 finish();
             }
         });
-    }
-    @Override
-    public void onSaveInstanceState(Bundle outState){
-        super.onSaveInstanceState(outState);
-        outState.putString("name",nextname);
-    }
-    @Override
-    protected void  onRestoreInstanceState(Bundle savedInstanceState){
-        super.onRestoreInstanceState(savedInstanceState);
-        String s = savedInstanceState.getString("name");
-        name.setText(s);
-    }
-    //服务器端口
-    public void requestLogin() {
-         new Thread(new Runnable() {
-             @Override
-             public void run() {
-                 try {
-                     url = "http://118.31.18.41:8080/TestService/read?name="+id;
-                     OkHttpClient okHttpClient = new OkHttpClient();
-                     Request request = new Request.Builder().url(url).build();
-                     Response response = okHttpClient.newCall(request).execute();
-                     String responseData = response.body().string();
-                     Json(responseData);
-                 } catch (Exception e) {
-                     e.printStackTrace();
-                 }
-            }
-        }).start();
-    }
-    //Json数据解析
-    private void Json(final String responsedata){
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                try{
-                    JSONObject object = new JSONObject(responsedata);
-                    JSONObject object1 = object.getJSONObject("data");
-                    System.out.println(object);
-                    myname = object1.getString("nickname");
-                    name.setText(myname);
-                }catch (JSONException e){
-                    e.printStackTrace();
-                }
-            }
-        });
-    }
-    //初始化
-    private void init() {
-        weather = findViewById(R.id.weather);
-        camera = findViewById(R.id.camera);
-        setting = findViewById(R.id.setting);
-        image = findViewById(R.id.image);
-        name = findViewById(R.id.name);
-        back = findViewById(R.id.back);
-        tv = findViewById(R.id.tv);
     }
     //返回键方法的重写
     @Override

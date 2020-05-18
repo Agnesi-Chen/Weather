@@ -9,6 +9,12 @@ import android.widget.Button;
 import com.example.weather.MeActivity;
 import com.example.weather.R;
 
+/**
+ * 设置类
+ * 显示各个设置选项
+ * 2020/5/18
+ */
+
 public class SettingsActivity extends Activity {
 
     private Button back,accounts,information,balance,notice,suggestion,use,about;
@@ -20,8 +26,30 @@ public class SettingsActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         init();
+        Jump();
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
+    }
+    //初始化各个控件
+    private void init(){
+        back = findViewById(R.id.back);
+        accounts = findViewById(R.id.accounts);
+        in_accounts = findViewById(R.id.in_accounts);
+        information = findViewById(R.id.information);
+        in_information = findViewById(R.id.in_information);
+        balance = findViewById(R.id.balance);
+        in_balance = findViewById(R.id.in_balance);
+        notice = findViewById(R.id.notice);
+        in_notice = findViewById(R.id.in_notice);
+        suggestion = findViewById(R.id.suggestion);
+        in_suggestion = findViewById(R.id.in_suggestion);
+        use = findViewById(R.id.use);
+        in_use = findViewById(R.id.in_use);
+        about = findViewById(R.id.about);
+        in_about = findViewById(R.id.in_about);
+    }
+    //界面跳转
+    private void Jump(){
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -144,23 +172,6 @@ public class SettingsActivity extends Activity {
                 startActivity(intent);
             }
         });
-    }
-    private void init(){
-        back = findViewById(R.id.back);
-        accounts = findViewById(R.id.accounts);
-        in_accounts = findViewById(R.id.in_accounts);
-        information = findViewById(R.id.information);
-        in_information = findViewById(R.id.in_information);
-        balance = findViewById(R.id.balance);
-        in_balance = findViewById(R.id.in_balance);
-        notice = findViewById(R.id.notice);
-        in_notice = findViewById(R.id.in_notice);
-        suggestion = findViewById(R.id.suggestion);
-        in_suggestion = findViewById(R.id.in_suggestion);
-        use = findViewById(R.id.use);
-        in_use = findViewById(R.id.in_use);
-        about = findViewById(R.id.about);
-        in_about = findViewById(R.id.in_about);
     }
     //返回键方法的重写
     @Override

@@ -10,6 +10,12 @@ import android.widget.RadioButton;
 import com.example.weather.R;
 import com.example.weather.setting.AccountsActivity;
 
+/**
+ * 头像类
+ * 连接数据库服务器修改用户头像
+ * 2020/5/18
+ */
+
 public class ImageActivity extends Activity {
 
     private Button back,ok;
@@ -22,6 +28,19 @@ public class ImageActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
         init();
+        Jump();
+    }
+    //初始化控件
+    private void  init(){
+        back = findViewById(R.id.back);
+        ok = findViewById(R.id.ok);
+        RB1 = findViewById(R.id.RB1);
+        RB2 = findViewById(R.id.RB2);
+        RB3 = findViewById(R.id.RB3);
+        RB4 = findViewById(R.id.RB4);
+    }
+    //界面跳转
+    private void Jump(){
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,15 +57,6 @@ public class ImageActivity extends Activity {
                 startActivity(intent);
             }
         });
-
-    }
-    private void  init(){
-        back = findViewById(R.id.back);
-        ok = findViewById(R.id.ok);
-        RB1 = findViewById(R.id.RB1);
-        RB2 = findViewById(R.id.RB2);
-        RB3 = findViewById(R.id.RB3);
-        RB4 = findViewById(R.id.RB4);
     }
     //返回键方法的重写
     @Override

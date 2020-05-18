@@ -6,11 +6,15 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
-
 import com.example.weather.R;
 import com.example.weather.setting.AboutActivity;
 import com.example.weather.setting.AccountsActivity;
-import com.example.weather.setting.SettingsActivity;
+
+/**
+ * 版本类
+ * 显示当前版本
+ * 2020/5/18
+ */
 
 public class VersionsActivity extends Activity {
 

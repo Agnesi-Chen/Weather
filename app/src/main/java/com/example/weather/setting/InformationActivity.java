@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import com.example.weather.R;
 
+/**
+ * 信息设置类
+ * 设置各种信息（如系统消息等）的推送
+ * 2020/5/18
+ */
+
 public class InformationActivity extends Activity {
 
     private Button back,DND,news,method,inform;
@@ -28,6 +34,7 @@ public class InformationActivity extends Activity {
             }
         });
     }
+    //初始化各个控件
     private void init(){
         DND = findViewById(R.id.DND);
         in_DND = findViewById(R.id.in_DND);

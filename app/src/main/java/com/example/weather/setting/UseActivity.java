@@ -8,6 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import com.example.weather.R;
 
+/**
+ * 使用教程类
+ * 2020/5/18
+ */
+
 public class UseActivity extends Activity {
 
     private Button back;

@@ -8,6 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * 天气预报地址更改类
+ * 选择更改天气预报对应地址
+ * 2020/5/18
+ */
+
 public class LocationActivity extends Activity {
 
     private EditText edit_locaton;
@@ -19,6 +25,28 @@ public class LocationActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location);
         init();
+        Jump();
+    }
+    //初始化各个控件
+    private void init(){
+        edit_locaton = findViewById(R.id.edit_location);
+        back = findViewById(R.id.back);
+        finish = findViewById(R.id.finish);
+        BJ = findViewById(R.id.BJ);
+        SH = findViewById(R.id.SH);
+        CD = findViewById(R.id.CD);
+        GZ = findViewById(R.id.GZ);
+        SZ = findViewById(R.id.SZ);
+        HZ = findViewById(R.id.HZ);
+        CQ = findViewById(R.id.CQ);
+        WH = findViewById(R.id.WH);
+        XA = findViewById(R.id.XA);
+        NJ = findViewById(R.id.NJ);
+        CS = findViewById(R.id.CS);
+        SY = findViewById(R.id.SY);
+    }
+    //界面跳转
+    private void Jump(){
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -121,23 +149,6 @@ public class LocationActivity extends Activity {
                 edit_locaton.setText(location);
             }
         });
-    }
-    private void init(){
-        edit_locaton = findViewById(R.id.edit_location);
-        back = findViewById(R.id.back);
-        finish = findViewById(R.id.finish);
-        BJ = findViewById(R.id.BJ);
-        SH = findViewById(R.id.SH);
-        CD = findViewById(R.id.CD);
-        GZ = findViewById(R.id.GZ);
-        SZ = findViewById(R.id.SZ);
-        HZ = findViewById(R.id.HZ);
-        CQ = findViewById(R.id.CQ);
-        WH = findViewById(R.id.WH);
-        XA = findViewById(R.id.XA);
-        NJ = findViewById(R.id.NJ);
-        CS = findViewById(R.id.CS);
-        SY = findViewById(R.id.SY);
     }
     //返回键方法的重写
     @Override

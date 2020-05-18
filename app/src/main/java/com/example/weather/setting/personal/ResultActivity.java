@@ -10,6 +10,12 @@ import android.widget.TextView;
 import com.example.weather.MainActivity;
 import com.example.weather.R;
 
+/**
+ * 结果类
+ * 接收结果展示到结果界面
+ * 2020/5/18
+ */
+
 public class ResultActivity extends Activity {
 
     private Button back;
@@ -20,11 +26,20 @@ public class ResultActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
+        Intent intent = getIntent();
+        s = intent.getStringExtra("result");
+        init();
+        Jump();
+        Result();
+    }
+    //初始化各个控件
+    private void init(){
         back = findViewById(R.id.back);
         result = findViewById(R.id.result);
         tv = findViewById(R.id.tv);
-        Intent intent = getIntent();
-        s = intent.getStringExtra("result");
+    }
+    //界面跳转
+    private void Jump(){
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,6 +48,9 @@ public class ResultActivity extends Activity {
                 startActivity(intent);
             }
         });
+    }
+    //结果处理
+    private void Result(){
         if(s.equals("[angry]")){
             result.setText("优");
             tv.setText("今日空气质量很好，适合出门活动。");

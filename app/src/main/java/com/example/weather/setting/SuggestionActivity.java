@@ -19,6 +19,12 @@ import com.example.weather.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 意见反馈类
+ * 以对话框的形式实现意见反馈（此功能暂时待定）
+ * 2020/5/18
+ */
+
 public class SuggestionActivity extends Activity {
 
     private Button back,send;
@@ -32,6 +38,7 @@ public class SuggestionActivity extends Activity {
         setContentView(R.layout.activity_suggestion);
         init();
         initMsg();
+        //对话框
         final MsgAdapter msgAdapter = new MsgAdapter(this,list);
         LinearLayoutManager layoutManager=new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -64,7 +71,7 @@ public class SuggestionActivity extends Activity {
             }
         });
     }
-    //初始化
+    //初始化各个控件
     private void initMsg() {
         list = new ArrayList<MsgEntity>();
     }
@@ -105,7 +112,6 @@ public class SuggestionActivity extends Activity {
             return type;
         }
     }
-
     public class MsgAdapter extends RecyclerView.Adapter<MsgAdapter.ViewHolder> {
         private List<MsgEntity> mMsg;//消息的实体类集合
         private Context mContext;
@@ -120,7 +126,6 @@ public class SuggestionActivity extends Activity {
             View view = LayoutInflater.from(mContext).inflate(R.layout.items, parent, false);
             return new ViewHolder(view);
         }
-
         @Override
         public void onBindViewHolder(MsgAdapter.ViewHolder holder, int position) {
             MsgEntity msg = mMsg.get(position);
@@ -136,7 +141,6 @@ public class SuggestionActivity extends Activity {
                 holder.send_tv.setText(msg.getContent());
             }
         }
-
         @Override
         public int getItemCount() {
             return mMsg.size();
